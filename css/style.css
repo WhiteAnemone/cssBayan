@@ -1,0 +1,108 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.memes-accordion {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 48px;
+}
+
+.accordion-btn {
+  padding: 15px 0;
+  border-top: 2px solid grey;
+  max-height: 60px;
+  transition: height 1s ease-out;
+}
+
+.accordion-btn-title {
+  font-size: 36px;
+  color: blue;
+}
+
+.accordion-btn-img {
+  display: none;
+  margin: 0 auto;
+  grid-column: 1 / 3;
+}
+
+label {
+  display: grid;
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+input {
+  display: none;
+}
+
+.close-btn {
+  display: none;
+  justify-self: right;
+  transform: rotate(45deg);
+}
+
+/*****/
+.accordion-btn:hover {
+  max-height: 600px;
+  transition: height 1s ease-out;
+}
+
+.accordion:hover, .accordion:hover label {
+  cursor: pointer;
+}
+
+.accordion:hover .accordion-btn-title {
+  color: black;
+  transition: all 1s ease-out;
+}
+
+.accordion:hover .close-btn {
+  display: block;
+}
+
+.accordion-btn:hover .close-btn {
+  transform: rotate(90deg);
+  transition: all 1s ease-out;
+}
+
+.accordion-btn:hover .accordion-btn-img {
+  display: block;
+}
+
+/*****/
+
+.accordion-btn input:checked+.accordion-btn-title {
+  color: black;
+}
+
+.accordion-btn input:checked~.accordion-btn-img {
+  display: block;
+}
+
+.accordion-btn input:checked~.close-btn {
+  display: block;
+  transform: rotate(90deg);
+  transition: all 1s ease-out;
+}
