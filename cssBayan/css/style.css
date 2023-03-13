@@ -5,7 +5,6 @@
 
 html {
   box-sizing: border-box;
-  scroll-behavior: smooth;
 }
 
 *,
@@ -32,8 +31,9 @@ h1 {
 .accordion-btn {
   padding: 15px 0;
   border-top: 2px solid grey;
-  /* max-height: 60px;
-  transition: height 1s ease-out; */
+  height: 90px;
+  transition: height 1s;
+  overflow: hidden;
 }
 
 label {
@@ -53,8 +53,8 @@ input {
 }
 
 .accordion-btn-img {
-  display: none;
-  margin: 0 auto;
+  display: block;
+  margin: 15px auto;
   grid-column: 1 / 3;
 }
 
@@ -62,6 +62,7 @@ input {
   display: none;
   justify-self: right;
   transform: rotate(45deg);
+  transition: all 1s ease-in-out;
 }
 
 .accordion-btn input:checked+.accordion-btn-title {
@@ -70,12 +71,19 @@ input {
 
 .accordion-btn input:checked~.accordion-btn-img {
   display: block;
+  transform: scale(100%);
+  transition: all 1s ease-in-out;
 }
 
 .accordion-btn input:checked~.close-btn {
   display: block;
   transform: rotate(90deg);
   transition: all 1s ease-out;
+}
+
+.accordion-btn:has(input:checked) {
+  height: 610px;
+  transition: height 1s;
 }
 
 @media (hover: hover) {
@@ -85,6 +93,11 @@ input {
     cursor: pointer;
   }
 
+  .accordion-btn:hover {
+    height: 610px;
+    transition: height 1s;
+  }
+
   .accordion:hover .accordion-btn-title {
     color: black;
     transition: all 1s ease-out;
@@ -92,6 +105,7 @@ input {
 
   .accordion:hover .close-btn {
     display: block;
+    transition: all 1s ease-in-out;
   }
 
   .accordion-btn:hover .close-btn {
