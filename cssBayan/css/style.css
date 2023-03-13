@@ -1,0 +1,157 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.memes-accordion {
+  max-width: 1380px;
+  padding: 0 50px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 62px;
+}
+
+.accordion-btn {
+  padding: 15px 0;
+  border-top: 2px solid grey;
+  height: 90px;
+  transition: height 1s;
+  overflow: hidden;
+}
+
+label {
+  display: grid;
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 90% 1fr;
+  align-items: center;
+  font-size: 48px;
+}
+
+input {
+  display: none;
+}
+
+.accordion-btn-title {
+  color: blue;
+}
+
+.accordion-btn-img {
+  display: block;
+  margin: 15px auto;
+  grid-column: 1 / 3;
+}
+
+.close-btn {
+  display: none;
+  justify-self: right;
+  transform: rotate(45deg);
+  transition: all 1s ease-in-out;
+}
+
+.accordion-btn input:checked+.accordion-btn-title {
+  color: black;
+}
+
+.accordion-btn input:checked~.accordion-btn-img {
+  display: block;
+  transform: scale(100%);
+  transition: all 1s ease-in-out;
+}
+
+.accordion-btn input:checked~.close-btn {
+  display: block;
+  transform: rotate(90deg);
+  transition: all 1s ease-out;
+}
+
+.accordion-btn:has(input:checked) {
+  height: 610px;
+  transition: height 1s;
+}
+
+@media (hover: hover) {
+
+  .accordion:hover,
+  .accordion:hover label {
+    cursor: pointer;
+  }
+
+  .accordion-btn:hover {
+    height: 610px;
+    transition: height 1s;
+  }
+
+  .accordion:hover .accordion-btn-title {
+    color: black;
+    transition: all 1s ease-out;
+  }
+
+  .accordion:hover .close-btn {
+    display: block;
+    transition: all 1s ease-in-out;
+  }
+
+  .accordion-btn:hover .close-btn {
+    transform: rotate(90deg);
+    transition: all 1s ease-out;
+  }
+
+  .accordion-btn:hover .accordion-btn-img {
+    display: block;
+  }
+}
+
+@media (max-width: 850px) {
+  h1 {
+    font-size: 48px;
+  }
+
+  label {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 670px) {
+  .memes-accordion {
+    padding: 0 25px;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  label {
+    font-size: 24px;
+  }
+
+  .accordion-btn-img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  label {
+    font-size: 16px;
+  }
+}
